@@ -1,0 +1,28 @@
+{
+  "name": "Basic Activity Booking App",
+  "version": "1.0.0",
+  "description": "Backend API Developer Assignment",
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "javascript"
+  ],
+  "license": "ISC",
+  "author": "Tarun Bommali",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "validator": "^13.15.0"
+  }
+}
