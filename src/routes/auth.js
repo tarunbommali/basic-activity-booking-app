@@ -57,12 +57,18 @@ authRouter.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    // Assuming you have a method getJWT in the user model
     const token = await user.getJWT();
+
+    // 🔥 Set token in HTTP-only cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false, // set to true in production with HTTPS
+      sameSite: "lax",
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    });
 
     res.status(200).json({
       message: "Login successful",
-      token,
       user: {
         _id: user._id,
         name: user.name,
@@ -75,5 +81,6 @@ authRouter.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
+
 
 module.exports = authRouter;
