@@ -6,6 +6,10 @@ const bookingSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  noOfTickets: {
+    type: Number,
+    required: true,
+  },
   activity: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Activity",
